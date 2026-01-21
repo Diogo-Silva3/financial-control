@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/google-login.css">
     <link rel="stylesheet" href="assets/css/language-selector.css">
+    <link rel="stylesheet" href="assets/css/login-duckfinance.css">
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -94,12 +95,48 @@
                 </div>
             </div>
             <section class="caixa-login">
-                <div class="simbolo-cantainer">
-                    <span class="material-symbols-outlined porco">paid</span>
+                <!-- Logo DuckFinance Style -->
+                <div class="logo-duckfinance">
+                    <div class="logo-dots">
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                        <span class="logo-dot"></span>
+                    </div>
+                    <span class="logo-text" data-i18n="app.name">Finanças</span>
                 </div>
-                <h5 class="login-titulo" data-i18n="login.title">Faça o login</h5>
                 
-                <!-- Botão Login com Google -->
+                <!-- Tabs Entrar/Cadastrar -->
+                <div class="login-tabs">
+                    <button class="tab-button active" id="tabEntrar" data-i18n="login.button">Entrar</button>
+                    <button class="tab-button" id="tabCadastrar" data-i18n="signup.title">Cadastrar</button>
+                </div>
+                
+                <h5 class="login-titulo" data-i18n="login.title">Bem-vindo,</h5>
+                <p class="login-subtitulo" data-i18n="signup.subtitle">Entre para continuar!</p>
+                
+                <div class="campo-login input-group flex-nowrap muted">
+                    <input type="email" name="email" id="email-login" class="form-control" data-i18n-placeholder="login.email" placeholder="Seu e-mail ou usuário" aria-label="Email">
+                </div>
+                <div class="campo-login input-group flex-nowrap muted">
+                    <input type="password" name="senha" id="senha-login" class="form-control" data-i18n-placeholder="login.password" placeholder="Senha" aria-label="Password">
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#" data-i18n="login.forgot">Esqueceu sua senha?</a>
+                </div>
+                
+                <div class="alerta">
+                    <p id="alertMsg" class="alerta-msg-y" style="display: none;"></p>
+                </div>
+                
+                <button type="button" id="botaoLogin" class="btn btn-primary btn-esp" data-i18n="login.continue">Continuar</button>
+                
+                <div class="divider">
+                    <span data-i18n="login.or">ou</span>
+                </div>
+                
+                <!-- Botão Google -->
                 <button type="button" id="botaoLoginGoogle" class="btn btn-google">
                     <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
@@ -110,27 +147,6 @@
                     </svg>
                     <span data-i18n="login.google">Continuar com Google</span>
                 </button>
-                
-                <div class="divider">
-                    <span data-i18n="login.or">ou</span>
-                </div>
-                
-                <div class="campo-login input-group flex-nowrap muted">
-                    <span class="input-group-text material-symbols-outlined" id="addon-wrapping"  data-bs-toggle="tooltip" data-bs-title="E-mail">mail</span>
-                    <input type="email" name="email" id="email-login" class="form-control" data-i18n-placeholder="login.email" placeholder="E-mail" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-                <div class="campo-login input-group flex-nowrap muted">
-                    <span class="input-group-text material-symbols-outlined" id="addon-wrapping" data-bs-toggle="tooltip" data-bs-title="Senha">key</span>
-                    <input type="password" name="senha" id="senha-login" class="form-control" data-i18n-placeholder="login.password" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-                <div class="alerta">
-                    <p id="alertMsg" class="alerta-msg-y"></p>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="lembrar exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1" data-i18n="login.remember">Lembrar</label>
-                </div>
-                <button type="button" id="botaoLogin" class="btn btn-primary btn-esp" data-i18n="login.button">Login</button>
             </section>
         </section>
     </main>
@@ -146,6 +162,24 @@
     <script src="./assets/js/login.js"></script>
     
     <script>
+        // Controle das tabs Entrar/Cadastrar
+        const tabEntrar = document.getElementById('tabEntrar');
+        const tabCadastrar = document.getElementById('tabCadastrar');
+        const botaoCadastro = document.getElementById('botaoCadastro');
+        
+        tabCadastrar.addEventListener('click', () => {
+            tabEntrar.classList.remove('active');
+            tabCadastrar.classList.add('active');
+            // Abrir modal de cadastro
+            const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            modal.show();
+            // Voltar para tab Entrar quando fechar modal
+            document.getElementById('exampleModal').addEventListener('hidden.bs.modal', () => {
+                tabCadastrar.classList.remove('active');
+                tabEntrar.classList.add('active');
+            });
+        });
+        
         // Controle do dropdown de idiomas
         const languageButton = document.getElementById('languageButton');
         const languageDropdown = document.getElementById('languageDropdown');
@@ -203,6 +237,17 @@
                 }
             });
         });
+        
+        // Mostrar alerta apenas quando houver mensagem
+        const alertMsg = document.getElementById('alertMsg');
+        const observer = new MutationObserver(() => {
+            if (alertMsg.textContent.trim()) {
+                alertMsg.style.display = 'block';
+            } else {
+                alertMsg.style.display = 'none';
+            }
+        });
+        observer.observe(alertMsg, { childList: true, characterData: true, subtree: true });
     </script>
 </body>
 </html>

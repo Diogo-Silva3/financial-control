@@ -1,0 +1,397 @@
+/* Layout DuckFinance - Página de Login */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1a202c;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Esconder elementos antigos */
+.login-principal .titulo-container,
+.login-principal .caixa-cadastro {
+    display: none !important;
+}
+
+.login-principal {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Card Principal */
+.caixa-login {
+    background: #f7fafc;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Logo com bolinhas coloridas */
+.simbolo-cantainer {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-duckfinance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.logo-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.logo-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.logo-dot:nth-child(1) { background: #f97316; }
+.logo-dot:nth-child(2) { background: #fbbf24; }
+.logo-dot:nth-child(3) { background: #10b981; }
+.logo-dot:nth-child(4) { background: #3b82f6; }
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-left: 4px;
+}
+
+/* Tabs Entrar/Cadastrar */
+.login-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #64748b;
+}
+
+.tab-button.active {
+    background: #1a202c;
+    color: white;
+}
+
+.tab-button:not(.active):hover {
+    background: #e2e8f0;
+}
+
+/* Título */
+.login-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a202c;
+    text-align: center;
+    margin: 0 0 8px 0;
+}
+
+.login-subtitulo {
+    font-size: 15px;
+    color: #64748b;
+    text-align: center;
+    margin: 0 0 32px 0;
+}
+
+/* Campos de Input - Estilo DuckFinance */
+.campo-login {
+    margin-bottom: 16px;
+}
+
+.campo-login .input-group {
+    display: block;
+}
+
+.campo-login .input-group-text {
+    display: none;
+}
+
+.campo-login .form-control {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    color: #1a202c;
+    transition: all 0.3s ease;
+}
+
+.campo-login .form-control::placeholder {
+    color: #94a3b8;
+}
+
+.campo-login .form-control:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Link Esqueceu Senha */
+.forgot-password {
+    text-align: right;
+    margin: -8px 0 20px 0;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #3b82f6;
+}
+
+/* Botão Continuar - Amarelo DuckFinance */
+.btn-esp {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    background: #fbbf24;
+    border: none;
+    color: #1a202c;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.btn-esp:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
+}
+
+/* Divider OU */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: #94a3b8;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Botão Google - Estilo DuckFinance */
+.btn-google {
+    width: 100%;
+    padding: 14px 24px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a202c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-google:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Checkbox */
+.form-check {
+    margin: 16px 0;
+    display: none; /* Esconder por enquanto */
+}
+
+/* Alertas */
+.alerta {
+    min-height: 24px;
+    margin: 12px 0;
+}
+
+.alerta-msg-y {
+    font-size: 14px;
+    color: #ef4444;
+    margin: 0;
+    text-align: center;
+    padding: 8px;
+    background: #fee2e2;
+    border-radius: 8px;
+}
+
+/* Modal Cadastro */
+.modal-content {
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: #f7fafc;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 24px 32px;
+    background: #f7fafc;
+    border-radius: 24px 24px 0 0;
+}
+
+.modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+.modal-body {
+    padding: 24px 32px;
+    background: #f7fafc;
+}
+
+.modal-body .input-group {
+    margin-bottom: 16px;
+    display: block;
+}
+
+.modal-body .input-group-text {
+    display: none;
+}
+
+.modal-body .form-control {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+}
+
+.modal-footer {
+    border-top: 1px solid #e2e8f0;
+    padding: 20px 32px;
+    background: #f7fafc;
+    border-radius: 0 0 24px 24px;
+}
+
+.modal-footer .btn {
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.modal-footer .btn-primary {
+    background: #fbbf24;
+    border: none;
+    color: #1a202c;
+}
+
+.modal-footer .btn-primary:hover {
+    background: #f59e0b;
+}
+
+.modal-footer .btn-secondary {
+    background: #e2e8f0;
+    border: none;
+    color: #64748b;
+}
+
+.alerta-msg-v {
+    font-size: 14px;
+    color: #ef4444;
+    margin: 0;
+    text-align: center;
+    min-height: 20px;
+    padding: 8px;
+    background: #fee2e2;
+    border-radius: 8px;
+}
+
+/* Responsivo */
+@media (max-width: 576px) {
+    body {
+        padding: 16px;
+    }
+    
+    .caixa-login {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+    
+    .login-titulo {
+        font-size: 24px;
+    }
+}
+
+/* Animações */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.caixa-login {
+    animation: fadeInScale 0.4s ease-out;
+}
+
+/* Seletor de idiomas ajustado */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+
+.language-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.language-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}

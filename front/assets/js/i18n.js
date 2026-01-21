@@ -16,6 +16,8 @@ const translations = {
         'login.error.many': 'Muitas tentativas. Aguarde alguns minutos.',
         'login.loading': 'Entrando...',
         'login.success': 'Login realizado!',
+        'login.forgot': 'Esqueceu sua senha?',
+        'login.continue': 'Continuar',
         
         // Cadastro
         'signup.title': 'Cadastre-se',
@@ -86,6 +88,8 @@ const translations = {
         'login.error.many': 'Too many attempts. Please wait a few minutes.',
         'login.loading': 'Signing in...',
         'login.success': 'Login successful!',
+        'login.forgot': 'Forgot your password?',
+        'login.continue': 'Continue',
         
         // Signup
         'signup.title': 'Sign up',
@@ -156,6 +160,8 @@ const translations = {
         'login.error.many': 'Demasiados intentos. Espere unos minutos.',
         'login.loading': 'Iniciando sesión...',
         'login.success': '¡Inicio de sesión exitoso!',
+        'login.forgot': '¿Olvidaste tu contraseña?',
+        'login.continue': 'Continuar',
         
         // Registro
         'signup.title': 'Regístrate',
