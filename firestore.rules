@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Função auxiliar para verificar autenticação
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Função para verificar se é o próprio usuário
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Usuários - apenas o próprio usuário pode ler/escrever
+    match /usuarios/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Receitas - apenas o dono pode acessar
+    match /receitas/{receitaId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Despesas - apenas o dono pode acessar
+    match /despesas/{despesaId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Contas - apenas o dono pode acessar
+    match /contas/{contaId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Tags - apenas o dono pode acessar
+    match /tags/{tagId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Anexos - apenas o dono pode acessar
+    match /anexos/{anexoId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Lembretes - apenas o dono pode acessar
+    match /lembretes/{lembreteId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Transferências - apenas o dono pode acessar
+    match /transferencias/{transferenciaId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+    
+    // Relatórios - apenas o dono pode acessar
+    match /relatorios/{relatorioId} {
+      allow read, write: if isAuthenticated() && 
+                           resource.data.usuarioId == request.auth.uid;
+    }
+  }
+}
