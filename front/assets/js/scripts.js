@@ -1,4 +1,4 @@
-const endereco = "http://127.0.0.1:3000"
+const endereco = "https://web-production-80ac4.up.railway.app"
 const hoje = new Date();
 const anoAtual = hoje.getYear() + 1900
 const diaAtual = hoje.getDate()
