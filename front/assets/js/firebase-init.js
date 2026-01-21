@@ -21,9 +21,15 @@ let firebaseAuth;
 // Função para inicializar Firebase
 function initFirebase() {
   try {
-    // Inicializar Firebase App
-    firebaseApp = firebase.initializeApp(firebaseConfig);
-    console.log('✅ Firebase inicializado com sucesso!');
+    // Verificar se Firebase já foi inicializado
+    if (firebase.apps.length > 0) {
+      console.log('✅ Firebase já estava inicializado!');
+      firebaseApp = firebase.app();
+    } else {
+      // Inicializar Firebase App
+      firebaseApp = firebase.initializeApp(firebaseConfig);
+      console.log('✅ Firebase inicializado com sucesso!');
+    }
     
     // Inicializar Analytics
     if (typeof firebase.analytics !== 'undefined') {
