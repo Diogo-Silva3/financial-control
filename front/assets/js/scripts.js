@@ -1,4 +1,4 @@
-const endereco = "https://web-production-80ac4.up.railway.app"
+const endereco = ""  // Vazio = mesmo domínio (Firebase Hosting + Functions)
 const hoje = new Date();
 const anoAtual = hoje.getYear() + 1900
 const diaAtual = hoje.getDate()
