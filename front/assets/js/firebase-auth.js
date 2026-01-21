@@ -1,10 +1,29 @@
-// Importar Firebase (já está carregado via firebase-init.js)
-const auth = firebase.auth();
-const db = firebase.firestore();
+// Aguardar Firebase estar pronto
+let auth, db;
+
+// Inicializar quando Firebase estiver pronto
+function initFirebaseServices() {
+    if (typeof firebase === 'undefined') {
+        console.error('Firebase não está carregado!');
+        return false;
+    }
+    
+    try {
+        auth = firebase.auth();
+        db = firebase.firestore();
+        console.log('✅ Firebase Auth e Firestore prontos!');
+        return true;
+    } catch (erro) {
+        console.error('Erro ao inicializar serviços:', erro);
+        return false;
+    }
+}
 
 // Função para cadastrar usuário
 async function cadastrarUsuario(nome, email, senha) {
     try {
+        if (!auth) initFirebaseServices();
+        
         // Criar usuário no Firebase Auth
         const userCredential = await auth.createUserWithEmailAndPassword(email, senha);
         const user = userCredential.user;
@@ -32,6 +51,8 @@ async function cadastrarUsuario(nome, email, senha) {
 // Função para fazer login
 async function fazerLogin(email, senha) {
     try {
+        if (!auth) initFirebaseServices();
+        
         const userCredential = await auth.signInWithEmailAndPassword(email, senha);
         const user = userCredential.user;
         
@@ -53,6 +74,8 @@ async function fazerLogin(email, senha) {
 // Função para fazer logout
 async function fazerLogout() {
     try {
+        if (!auth) initFirebaseServices();
+        
         await auth.signOut();
         return { sucesso: true };
     } catch (erro) {
@@ -64,6 +87,8 @@ async function fazerLogout() {
 // Função para verificar se usuário está logado
 function verificarUsuarioLogado() {
     return new Promise((resolve) => {
+        if (!auth) initFirebaseServices();
+        
         auth.onAuthStateChanged((user) => {
             resolve(user);
         });
@@ -72,5 +97,14 @@ function verificarUsuarioLogado() {
 
 // Função para obter usuário atual
 function getUsuarioAtual() {
+    if (!auth) initFirebaseServices();
     return auth.currentUser;
+}
+
+// Inicializar quando o documento estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFirebaseServices);
+} else {
+    // Se já carregou, aguardar um pouco para Firebase estar pronto
+    setTimeout(initFirebaseServices, 500);
 }
