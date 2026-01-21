@@ -1,0 +1,376 @@
+/* ========================================
+   TIPOGRAFIA PROFISSIONAL
+   ======================================== */
+
+/* Fonte principal: Inter (moderna e limpa) */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Títulos e headings: Poppins (elegante e profissional) */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.card-title,
+.modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+/* Navbar - Estilo profissional */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    font-weight: 600;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    font-family: 'Inter', sans-serif;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: none;
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Botões - Tipografia profissional */
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.botao-opcao {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+}
+
+/* Cards - Títulos elegantes */
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cor-text, #ffffff);
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+/* Valores monetários - Destaque profissional */
+#valor-receitas,
+#valor-despesas,
+#valor-saldo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+/* Mês/Ano - Título principal */
+#valor-mes {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Inputs e forms */
+.form-control,
+.form-select {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+}
+
+.form-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--cor-text, #ffffff);
+    margin-bottom: 0.5rem;
+}
+
+/* Tabelas - Tipografia limpa */
+table {
+    font-family: 'Inter', sans-serif;
+}
+
+table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+table td {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+/* Modal - Títulos profissionais */
+.modal-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.modal-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+/* Insights - Tipografia destacada */
+.insights-section h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.insight-card h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.insight-card p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+/* Dashboard - Títulos dos gráficos */
+.dashboard-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Busca - Input profissional */
+.busca input {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+.busca button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Categorias - Tipografia limpa */
+.tatela_categoria {
+    font-family: 'Inter', sans-serif;
+}
+
+.tatela_categoria th {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.tatela_categoria td {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Conquistas - Títulos destacados */
+.conquista-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+}
+
+.conquista-card p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+/* Temas - Cards elegantes */
+.tema-card p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Contas - Tipografia profissional */
+.conta-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+.conta-tipo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.conta-saldo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+}
+
+/* Meta - Progresso */
+.meta-progresso h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.meta-progresso p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Alertas - Tipografia destacada */
+.alert {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 12px;
+}
+
+/* Badges - Tipografia limpa */
+.badge {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+}
+
+/* Spinner e loading */
+.spinner-border + div {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Responsividade - Ajustes de tamanho */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    #valor-mes {
+        font-size: 1.4rem;
+    }
+    
+    #valor-receitas,
+    #valor-despesas,
+    #valor-saldo {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-title {
+        font-size: 1.4rem;
+    }
+    
+    .conta-saldo {
+        font-size: 1.4rem;
+    }
+}
+
+/* Melhorias de legibilidade */
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+strong, b {
+    font-weight: 600;
+}
+
+/* Links - Estilo profissional */
+a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    font-weight: 600;
+}
+
+/* Números - Fonte tabular para alinhamento */
+.valor-monetario,
+[id*="valor-"],
+[id*="categoria-"] {
+    font-variant-numeric: tabular-nums;
+}

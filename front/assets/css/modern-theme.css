@@ -1,0 +1,358 @@
+/* ========================================
+   TEMA MODERNO - ESTILO DUCKFINANCE
+   ======================================== */
+
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f7fa !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Layout Container */
+.layout-container {
+    background: #f5f7fa !important;
+}
+
+/* Sidebar Moderna */
+.sidebar {
+    width: 240px !important;
+    background: #1e293b !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Logo com bolinhas coloridas */
+.sidebar-logo a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+    padding: 1.5rem 1.2rem !important;
+}
+
+.sidebar-logo a::before {
+    content: '' !important;
+    display: inline-block !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #3b82f6 100%) !important;
+    border-radius: 8px !important;
+}
+
+/* Menu Items */
+.sidebar-menu {
+    padding: 0.5rem 0.8rem !important;
+}
+
+.sidebar-menu li {
+    margin-bottom: 0.3rem !important;
+}
+
+.sidebar-menu a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem 1rem !important;
+    color: #94a3b8 !important;
+    border-radius: 10px !important;
+    border-left: none !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar-menu a:hover {
+    background: #334155 !important;
+    color: #ffffff !important;
+    padding-left: 1rem !important;
+    transform: none !important;
+}
+
+.sidebar-menu a.active {
+    background: #fbbf24 !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    border-left: none !important;
+}
+
+.sidebar-menu a.active .material-symbols-outlined {
+    color: #1e293b !important;
+}
+
+.sidebar-menu .material-symbols-outlined {
+    font-size: 1.3rem !important;
+    margin-right: 0.8rem !important;
+    color: #94a3b8 !important;
+}
+
+.sidebar-menu a.active .material-symbols-outlined,
+.sidebar-menu a:hover .material-symbols-outlined {
+    color: inherit !important;
+}
+
+/* Seção de Ferramentas */
+.sidebar-section {
+    margin-top: 2rem !important;
+    padding: 0 0.8rem !important;
+}
+
+.sidebar-section-title {
+    color: #64748b !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    padding: 0 1rem !important;
+    margin-bottom: 0.8rem !important;
+}
+
+/* Logout */
+.sidebar-logout {
+    position: absolute !important;
+    bottom: 1rem !important;
+    left: 0.8rem !important;
+    right: 0.8rem !important;
+    padding: 0 !important;
+    border-top: none !important;
+}
+
+.sidebar-logout a {
+    background: transparent !important;
+    color: #94a3b8 !important;
+    border-radius: 10px !important;
+    padding: 0.75rem 1rem !important;
+    justify-content: flex-start !important;
+}
+
+.sidebar-logout a:hover {
+    background: #334155 !important;
+    color: #ef4444 !important;
+    transform: none !important;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    background: #f5f7fa !important;
+    padding: 0 !important;
+}
+
+.painel-principal {
+    background: #f5f7fa !important;
+    margin: 0 !important;
+    padding: 2rem 3rem !important;
+    max-width: 1400px !important;
+}
+
+/* Cards Modernos */
+.card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-2px) !important;
+}
+
+.card-title {
+    color: #1e293b !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+/* Busca Moderna */
+.busca {
+    padding: 0 0 2rem 0 !important;
+}
+
+.busca .input-group {
+    max-width: 500px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.busca .form-control {
+    border: 1px solid #e2e8f0 !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.95rem !important;
+}
+
+.busca .form-control:focus {
+    border-color: #fbbf24 !important;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Botões Modernos */
+.btn {
+    border-radius: 10px !important;
+    padding: 0.7rem 1.3rem !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+    background: #3b82f6 !important;
+}
+
+.btn-primary:hover {
+    background: #2563eb !important;
+    transform: translateY(-1px) !important;
+}
+
+.botao-opcao {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.botao-opcao:hover {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #1e293b !important;
+}
+
+/* Botão Flutuante Amarelo */
+.fab-button {
+    position: fixed !important;
+    bottom: 2rem !important;
+    right: 2rem !important;
+    width: 56px !important;
+    height: 56px !important;
+    background: #fbbf24 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    z-index: 999 !important;
+    border: none !important;
+}
+
+.fab-button:hover {
+    background: #f59e0b !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5) !important;
+}
+
+.fab-button .material-symbols-outlined {
+    font-size: 2rem !important;
+    color: #1e293b !important;
+}
+
+/* Cards de Valores */
+.dados-mensal_card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dados-mensal_card .card-body {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.dados-mensal_card .card-title {
+    color: #1e293b !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+}
+
+/* Tabelas Modernas */
+table {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+th {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+}
+
+tr:hover {
+    background: #f8fafc !important;
+}
+
+/* Footer */
+.painel-footer {
+    background: #1e293b !important;
+    margin-left: 0 !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .painel-principal {
+        padding: 1.5rem !important;
+    }
+    
+    .fab-button {
+        bottom: 1.5rem !important;
+        right: 1.5rem !important;
+    }
+}
+
+/* Scrollbar personalizada */
+.sidebar::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #334155 !important;
+    border-radius: 10px !important;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #475569 !important;
+}
+
+/* Remover efeitos antigos */
+.sidebar-menu a::before {
+    display: none !important;
+}
+
+/* Card Mês */
+.card-mes {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Dashboard */
+.dashboard-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.dashboard-title {
+    color: #1e293b !important;
+    text-shadow: none !important;
+}

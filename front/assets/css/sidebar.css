@@ -1,0 +1,276 @@
+/* ========================================
+   SIDEBAR LATERAL PROFISSIONAL
+   ======================================== */
+
+/* Layout principal com sidebar */
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar lateral */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    padding: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+/* Logo da sidebar */
+.sidebar-logo {
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.sidebar-logo a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    display: block;
+}
+
+/* Menu da sidebar */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 0;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-menu a:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #ffffff;
+    border-left-color: #667eea;
+    padding-left: 1.8rem;
+}
+
+.sidebar-menu a.active {
+    background: rgba(102, 126, 234, 0.2);
+    color: #ffffff;
+    border-left-color: #667eea;
+    font-weight: 600;
+}
+
+.sidebar-menu .material-symbols-outlined {
+    margin-right: 0.8rem;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
+
+/* Seção de ferramentas */
+.sidebar-section {
+    margin-top: 2rem;
+    padding: 0 1.5rem;
+}
+
+.sidebar-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.8rem;
+}
+
+/* Botão de logout */
+.sidebar-logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logout a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sidebar-logout a:hover {
+    background: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Conteúdo principal ajustado */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Remover navbar antiga */
+.navbar {
+    display: none;
+}
+
+/* Toggle button para mobile */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 0.6rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.sidebar-toggle .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .sidebar-logout {
+        position: relative;
+        margin-top: 2rem;
+    }
+}
+
+/* Overlay para mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Ajustes no footer */
+.painel-footer {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Ajustes no conteúdo principal */
+.painel-principal {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* Badge de notificação */
+.sidebar-badge {
+    background: #dc3545;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    margin-left: auto;
+    font-weight: 600;
+}
+
+/* Animações suaves */
+.sidebar-menu a,
+.sidebar-logout a {
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: rgba(102, 126, 234, 0.1);
+    transition: width 0.3s ease;
+}
+
+.sidebar-menu a:hover::before {
+    width: 100%;
+}
+
+/* Ícones com efeito hover */
+.sidebar-menu a:hover .material-symbols-outlined {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Scrollbar personalizada */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.8);
+}

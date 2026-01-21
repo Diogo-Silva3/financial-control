@@ -1,0 +1,124 @@
+/* Modo Escuro */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #e0e0e0;
+}
+
+body.dark-mode .card {
+    background: rgba(30, 30, 46, 0.95);
+    color: #e0e0e0;
+}
+
+body.dark-mode .modal-content {
+    background: #1e1e2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .modal-header {
+    background: linear-gradient(135deg, #2d3561 0%, #1f2544 100%);
+    border-bottom: 1px solid #3a3a5a;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #2a2a3e;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background: #2a2a3e;
+    color: #e0e0e0;
+    border-color: #667eea;
+}
+
+body.dark-mode .input-group-text {
+    background: #2a2a3e;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+
+body.dark-mode .navbar {
+    background: rgba(30, 30, 46, 0.95) !important;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #667eea !important;
+}
+
+body.dark-mode table {
+    background: rgba(30, 30, 46, 0.95);
+    color: #e0e0e0;
+}
+
+body.dark-mode th {
+    background: linear-gradient(135deg, #2d3561 0%, #1f2544 100%);
+}
+
+body.dark-mode tr:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+body.dark-mode .caixa-login {
+    background: rgba(30, 30, 46, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .caixa-cadastro {
+    background: rgba(30, 30, 46, 0.95);
+}
+
+body.dark-mode .card-title {
+    color: #a0a0ff;
+}
+
+body.dark-mode .dashboard-card .card-title {
+    color: #8b9aff;
+}
+
+body.dark-mode .btn-secondary {
+    background: #3a3a5a;
+    border-color: #4a4a6a;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #4a4a6a;
+}
+
+/* Toggle do modo escuro */
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle .material-symbols-outlined {
+    font-size: 30px;
+    color: white;
+}
+
+body.dark-mode .theme-toggle {
+    background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+}

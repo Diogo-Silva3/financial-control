@@ -1,0 +1,63 @@
+/* Fix específico para página Sobre - Forçar tipografia profissional */
+
+.dados-sobre * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+.dados-sobre .card-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem !important;
+    color: #1a1a2e !important;
+    text-align: center !important;
+    letter-spacing: -0.02em !important;
+}
+
+.dados-sobre h6 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: #667eea !important;
+}
+
+.dados-sobre .card-body {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    color: #333 !important;
+    margin-bottom: 1.2rem !important;
+    text-align: justify !important;
+    font-weight: 400 !important;
+}
+
+.dados-sobre p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    color: #333 !important;
+    font-weight: 400 !important;
+}
+
+.dados-sobre ul {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
+    color: #333 !important;
+}
+
+.dados-sobre ul li {
+    margin-bottom: 0.8rem !important;
+    color: #444 !important;
+}
+
+.dados-sobre strong {
+    color: #667eea !important;
+    font-weight: 600 !important;
+}
+
+/* Garantir que os badges fiquem bem espaçados */
+.sobre-badges {
+    margin: 2.5rem 0 !important;
+    padding: 1rem 0 !important;
+}

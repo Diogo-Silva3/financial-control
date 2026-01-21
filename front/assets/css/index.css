@@ -1,0 +1,119 @@
+.login-cadastro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.caixa-cadastro {
+    width: 320px;
+    height: 420px;
+    background-color: #FFFFFF;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.caixa-cadastro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+.cadastro {
+    height: 61%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.card-img-top {
+    border-radius: 20px 20px 0 0;
+    height: 160px;
+    object-fit: cover;
+}
+
+.caixa-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 320px;
+    min-height: 420px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    margin: 15px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.simbolo-cantainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.porco {
+    font-size: 80px;
+    text-align: center;
+    color: #ffffff;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.btn-esp {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-esp:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    transform: translateY(-2px);
+}
+
+.titulo-container{
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+
+.titulo{
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.login-titulo {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.campo-login {
+    margin-bottom: 15px;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #666;
+    font-size: 14px;
+}

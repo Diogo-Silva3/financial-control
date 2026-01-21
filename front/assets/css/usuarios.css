@@ -1,0 +1,82 @@
+.principal {
+    height: auto;
+    min-height: 100vh;
+    padding: 2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dados-usuario {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dados-usuario .card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.dados-usuario p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.dados-usuario .input-group {
+    margin-bottom: 1rem;
+}
+
+.dados-usuario button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.dados-usuario #usuario-alerta {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-usuarios {
+    width: 100%;
+}
+
+/* Ajuste para página usuário com sidebar */
+.main-content .principal {
+    background: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .principal {
+        padding: 1rem;
+    }
+    
+    .dados-usuario {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .principal {
+        height: auto;
+        padding: 0.5rem;
+    }
+    
+    .dados-usuario {
+        padding: 1rem;
+    }
+}

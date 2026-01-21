@@ -1,0 +1,413 @@
+/* ========================================
+   TEMAS
+   ======================================== */
+
+:root {
+	--cor-primary: #667eea;
+	--cor-secondary: #764ba2;
+	--cor-background: #1a1a2e;
+	--cor-card: #16213e;
+	--cor-text: #ffffff;
+}
+
+.temas-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 15px;
+	padding: 20px 0;
+}
+
+.tema-card {
+	cursor: pointer;
+	text-align: center;
+	transition: transform 0.3s;
+}
+
+.tema-card:hover {
+	transform: translateY(-5px);
+}
+
+.tema-preview {
+	height: 80px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ========================================
+   CONQUISTAS
+   ======================================== */
+
+.conquistas-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	padding: 20px 0;
+}
+
+.conquista-card {
+	background: var(--cor-card);
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+	transition: all 0.3s;
+}
+
+.conquista-desbloqueada {
+	border: 2px solid #4caf50;
+	box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.conquista-bloqueada {
+	opacity: 0.5;
+	filter: grayscale(100%);
+}
+
+.conquista-card:hover {
+	transform: scale(1.05);
+}
+
+.conquista-notificacao {
+	position: fixed;
+	top: 20px;
+	right: -400px;
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+	z-index: 9999;
+	max-width: 350px;
+	transition: right 0.3s ease-in-out;
+	text-align: center;
+}
+
+.conquista-notificacao.show {
+	right: 20px;
+}
+
+.conquista-notificacao h4 {
+	margin: 10px 0;
+	font-size: 18px;
+}
+
+.conquista-notificacao p {
+	margin: 5px 0;
+	font-size: 14px;
+}
+
+/* ========================================
+   META DE ECONOMIA
+   ======================================== */
+
+.meta-progresso {
+	background: var(--cor-card);
+	padding: 20px;
+	border-radius: 10px;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.meta-progresso h5 {
+	color: var(--cor-text);
+	margin-bottom: 15px;
+}
+
+.meta-progresso .progress {
+	background: rgba(255,255,255,0.1);
+}
+
+/* ========================================
+   CONTAS
+   ======================================== */
+
+.contas-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+	padding: 20px 0;
+}
+
+.conta-card {
+	background: var(--cor-card);
+	border-radius: 10px;
+	overflow: hidden;
+	transition: transform 0.3s;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.conta-card:hover {
+	transform: translateY(-5px);
+}
+
+.conta-header {
+	padding: 20px;
+	color: white;
+	text-align: center;
+}
+
+.conta-header .material-symbols-outlined {
+	font-size: 48px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.conta-header h5 {
+	margin: 0;
+	font-size: 18px;
+}
+
+.conta-body {
+	padding: 20px;
+	background: var(--cor-background);
+}
+
+.conta-tipo {
+	color: #999;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.conta-saldo {
+	color: var(--cor-text);
+	font-size: 24px;
+	margin-bottom: 15px;
+}
+
+.conta-acoes {
+	display: flex;
+	gap: 10px;
+}
+
+.conta-acoes button {
+	flex: 1;
+}
+
+.conta-nova {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+	cursor: pointer;
+	border: 2px dashed var(--cor-primary);
+	background: transparent;
+}
+
+.conta-nova:hover {
+	background: rgba(102, 126, 234, 0.1);
+}
+
+.conta-nova .material-symbols-outlined {
+	font-size: 64px;
+	color: var(--cor-primary);
+}
+
+/* ========================================
+   SEGURANÇA
+   ======================================== */
+
+.seguranca-opcoes {
+	padding: 20px 0;
+}
+
+.opcao-seguranca {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.opcao-seguranca strong {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form-check-input:checked {
+	background-color: var(--cor-primary);
+	border-color: var(--cor-primary);
+}
+
+/* ========================================
+   LEMBRETES
+   ======================================== */
+
+.lembretes-notificacao {
+	position: fixed;
+	bottom: 20px;
+	right: -400px;
+	background: white;
+	color: #333;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+	z-index: 9999;
+	max-width: 350px;
+	transition: right 0.3s ease-in-out;
+}
+
+.lembretes-notificacao.show {
+	right: 20px;
+}
+
+.lembretes-notificacao h5 {
+	margin-bottom: 15px;
+	color: #667eea;
+}
+
+.lembretes-notificacao ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.lembretes-notificacao li {
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.lembretes-notificacao li:last-child {
+	border-bottom: none;
+}
+
+/* ========================================
+   FOTO DE PERFIL
+   ======================================== */
+
+.foto-perfil-container {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	margin: 20px auto;
+}
+
+.foto-perfil {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 4px solid var(--cor-primary);
+}
+
+.foto-perfil-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+	cursor: pointer;
+}
+
+.foto-perfil-container:hover .foto-perfil-overlay {
+	opacity: 1;
+}
+
+.foto-perfil-overlay .material-symbols-outlined {
+	color: white;
+	font-size: 32px;
+}
+
+/* ========================================
+   INSIGHTS
+   ======================================== */
+
+.insights-section {
+	margin: 30px 0;
+}
+
+.insights-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 15px;
+}
+
+.insight-card {
+	background: var(--cor-card);
+	padding: 15px;
+	border-radius: 10px;
+	border-left: 4px solid var(--cor-primary);
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.insight-icon {
+	font-size: 32px;
+	color: var(--cor-primary);
+}
+
+.insight-content h6 {
+	margin: 0 0 5px 0;
+	color: var(--cor-text);
+	font-size: 14px;
+}
+
+.insight-content p {
+	margin: 0;
+	color: #999;
+	font-size: 12px;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+	.temas-grid,
+	.conquistas-grid,
+	.contas-grid {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
+	
+	.conquista-notificacao,
+	.lembretes-notificacao {
+		max-width: 90%;
+		left: 5%;
+		right: auto;
+	}
+	
+	.conquista-notificacao.show,
+	.lembretes-notificacao.show {
+		right: auto;
+	}
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes pulse {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+.animate-slide-in {
+	animation: slideInRight 0.5s ease-out;
+}
+
+.animate-pulse {
+	animation: pulse 2s infinite;
+}
