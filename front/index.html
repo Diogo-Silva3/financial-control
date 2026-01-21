@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/google-login.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -19,34 +20,62 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
     
-    <title>Controle Financeiro</title>
+    <title data-i18n="app.name">Controle Financeiro</title>
 </head>
 <body>
+    <!-- Seletor de Idiomas -->
+    <div class="language-selector">
+        <div class="language-dropdown" id="languageDropdown">
+            <button class="language-button" id="languageButton">
+                <span class="flag" id="currentFlag">🇧🇷</span>
+                <span id="currentLang">PT</span>
+                <span class="material-symbols-outlined arrow">expand_more</span>
+            </button>
+            <div class="language-menu">
+                <div class="language-option active" data-lang="pt">
+                    <span class="flag">🇧🇷</span>
+                    <span class="name">Português</span>
+                    <span class="material-symbols-outlined check">check</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span class="name">English</span>
+                    <span class="material-symbols-outlined check">check</span>
+                </div>
+                <div class="language-option" data-lang="es">
+                    <span class="flag">🇪🇸</span>
+                    <span class="name">Español</span>
+                    <span class="material-symbols-outlined check">check</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastre-se</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel" data-i18n="signup.title">Cadastre-se</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="modal-info" class="modal-body muted">
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text material-symbols-outlined" id="addon-wrapping" data-bs-toggle="tooltip" data-bs-title="Nome">badge</span>
-                    <input type="text" name="nome" id="campo-nome" class="form-control" placeholder="Primeiro Nome" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="text" name="nome" id="campo-nome" class="form-control" data-i18n-placeholder="signup.name" placeholder="Primeiro Nome" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>            
                 <div class="input-group flex-nowrap muted">
                     <span class="input-group-text material-symbols-outlined" id="addon-wrapping" data-bs-toggle="tooltip" data-bs-title="E-mail">mail</span>
-                    <input type="email" name="email" id="campo-email" class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="email" name="email" id="campo-email" class="form-control" data-i18n-placeholder="login.email" placeholder="E-mail" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="input-group flex-nowrap muted">
                     <span class="input-group-text material-symbols-outlined" id="addon-wrapping"  data-bs-toggle="tooltip" data-bs-title="Senha">key</span>
-                    <input type="password" name="senha" id="campo-senha" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="password" name="senha" id="campo-senha" class="form-control" data-i18n-placeholder="login.password" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
             </div>
             <div id="modal-alert" class="modal-body alerta-msg-v"></div>
             <div class="modal-footer">
-                <button id="botao-modal_cancelar" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button id="botao-modal" type="button" class="btn btn-primary botao_modal">Cadastre Agora!</button>
+                <button id="botao-modal_cancelar" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="button.cancel">Cancelar</button>
+                <button id="botao-modal" type="button" class="btn btn-primary botao_modal" data-i18n="signup.button">Cadastre Agora!</button>
             </div>
         </div>
         </div>
@@ -68,7 +97,7 @@
                 <div class="simbolo-cantainer">
                     <span class="material-symbols-outlined porco">paid</span>
                 </div>
-                <h5 class="login-titulo">Faça o login</h5>
+                <h5 class="login-titulo" data-i18n="login.title">Faça o login</h5>
                 
                 <!-- Botão Login com Google -->
                 <button type="button" id="botaoLoginGoogle" class="btn btn-google">
@@ -79,29 +108,29 @@
                         <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
                         <path fill="none" d="M0 0h48v48H0z"/>
                     </svg>
-                    Continuar com Google
+                    <span data-i18n="login.google">Continuar com Google</span>
                 </button>
                 
                 <div class="divider">
-                    <span>ou</span>
+                    <span data-i18n="login.or">ou</span>
                 </div>
                 
                 <div class="campo-login input-group flex-nowrap muted">
                     <span class="input-group-text material-symbols-outlined" id="addon-wrapping"  data-bs-toggle="tooltip" data-bs-title="E-mail">mail</span>
-                    <input type="email" name="email" id="email-login" class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="email" name="email" id="email-login" class="form-control" data-i18n-placeholder="login.email" placeholder="E-mail" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="campo-login input-group flex-nowrap muted">
                     <span class="input-group-text material-symbols-outlined" id="addon-wrapping" data-bs-toggle="tooltip" data-bs-title="Senha">key</span>
-                    <input type="password" name="senha" id="senha-login" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="password" name="senha" id="senha-login" class="form-control" data-i18n-placeholder="login.password" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="alerta">
                     <p id="alertMsg" class="alerta-msg-y"></p>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="lembrar exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Lembrar</label>
+                    <label class="form-check-label" for="exampleCheck1" data-i18n="login.remember">Lembrar</label>
                 </div>
-                <button type="button" id="botaoLogin" class="btn btn-primary btn-esp">Login</button>
+                <button type="button" id="botaoLogin" class="btn btn-primary btn-esp" data-i18n="login.button">Login</button>
             </section>
         </section>
     </main>
@@ -113,6 +142,67 @@
     <script src="./assets/js/melhorias.js"></script>
     <script src="./assets/js/firebase-init.js"></script>
     <script src="./assets/js/firebase-auth.js"></script>
+    <script src="./assets/js/i18n.js"></script>
     <script src="./assets/js/login.js"></script>
+    
+    <script>
+        // Controle do dropdown de idiomas
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+        
+        // Toggle dropdown
+        languageButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('active');
+        });
+        
+        // Fechar dropdown ao clicar fora
+        document.addEventListener('click', () => {
+            languageDropdown.classList.remove('active');
+        });
+        
+        // Selecionar idioma
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                const flag = option.querySelector('.flag').textContent;
+                const langCode = lang.toUpperCase();
+                
+                // Atualizar UI
+                currentFlag.textContent = flag;
+                currentLang.textContent = langCode;
+                
+                // Remover active de todos
+                languageOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Mudar idioma
+                changeLanguage(lang);
+                
+                // Fechar dropdown
+                languageDropdown.classList.remove('active');
+            });
+        });
+        
+        // Carregar idioma salvo
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('language') || 'pt';
+            const flags = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸' };
+            
+            currentFlag.textContent = flags[savedLang];
+            currentLang.textContent = savedLang.toUpperCase();
+            
+            languageOptions.forEach(opt => {
+                if (opt.getAttribute('data-lang') === savedLang) {
+                    opt.classList.add('active');
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
