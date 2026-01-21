@@ -1,5 +1,6 @@
 // Aguardar Firebase estar pronto
 let auth, db;
+let firebaseReady = false;
 
 // Inicializar quando Firebase estiver pronto
 function initFirebaseServices() {
@@ -9,8 +10,15 @@ function initFirebaseServices() {
     }
     
     try {
+        // Aguardar Firebase App estar inicializado
+        if (firebase.apps.length === 0) {
+            console.log('⏳ Aguardando Firebase App ser inicializado...');
+            return false;
+        }
+        
         auth = firebase.auth();
         db = firebase.firestore();
+        firebaseReady = true;
         console.log('✅ Firebase Auth e Firestore prontos!');
         return true;
     } catch (erro) {
@@ -19,9 +27,33 @@ function initFirebaseServices() {
     }
 }
 
+// Função para aguardar Firebase estar pronto
+function waitForFirebase() {
+    return new Promise((resolve) => {
+        if (firebaseReady) {
+            resolve(true);
+            return;
+        }
+        
+        const checkInterval = setInterval(() => {
+            if (initFirebaseServices()) {
+                clearInterval(checkInterval);
+                resolve(true);
+            }
+        }, 100);
+        
+        // Timeout após 10 segundos
+        setTimeout(() => {
+            clearInterval(checkInterval);
+            resolve(false);
+        }, 10000);
+    });
+}
+
 // Função para cadastrar usuário
 async function cadastrarUsuario(nome, email, senha) {
     try {
+        await waitForFirebase();
         if (!auth) initFirebaseServices();
         
         // Criar usuário no Firebase Auth
@@ -51,6 +83,7 @@ async function cadastrarUsuario(nome, email, senha) {
 // Função para fazer login
 async function fazerLogin(email, senha) {
     try {
+        await waitForFirebase();
         if (!auth) initFirebaseServices();
         
         const userCredential = await auth.signInWithEmailAndPassword(email, senha);
@@ -74,6 +107,7 @@ async function fazerLogin(email, senha) {
 // Função para login com Google
 async function loginComGoogle() {
     try {
+        await waitForFirebase();
         if (!auth) initFirebaseServices();
         
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -122,6 +156,7 @@ async function loginComGoogle() {
 // Função para fazer logout
 async function fazerLogout() {
     try {
+        await waitForFirebase();
         if (!auth) initFirebaseServices();
         
         await auth.signOut();
@@ -133,10 +168,11 @@ async function fazerLogout() {
 }
 
 // Função para verificar se usuário está logado
-function verificarUsuarioLogado() {
+async function verificarUsuarioLogado() {
+    await waitForFirebase();
+    if (!auth) initFirebaseServices();
+    
     return new Promise((resolve) => {
-        if (!auth) initFirebaseServices();
-        
         auth.onAuthStateChanged((user) => {
             resolve(user);
         });
@@ -151,7 +187,9 @@ function getUsuarioAtual() {
 
 // Inicializar quando o documento estiver pronto
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFirebaseServices);
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initFirebaseServices, 500);
+    });
 } else {
     // Se já carregou, aguardar um pouco para Firebase estar pronto
     setTimeout(initFirebaseServices, 500);
