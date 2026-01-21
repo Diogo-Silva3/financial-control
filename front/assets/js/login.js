@@ -10,7 +10,12 @@ const campoNome = $("#campo-nome")
 const campoEmail = $("#campo-email")
 const campoSenha = $("#campo-senha")
 
-loginAutomatico()
+// Verificar se usuário já está logado
+verificarUsuarioLogado().then(user => {
+  if (user) {
+    window.location.href = './principal.html'
+  }
+})
 
 botaoCadastro.click(() => {
   $(".botao_modal").css("display", "block")
@@ -21,124 +26,83 @@ botaoCadastro.click(() => {
   alertaModal.text("")
 })
 
-botaoCadastrar.on("click", () => {
-  $.ajax({
-    type: "POST",
-    url: `${endereco}/usuarios`,
-    dataType: 'json',
-    data: {
-      email: campoEmail.val(),
-      nome: campoNome.val(),
-      senha: campoSenha.val()
-    },
-    success: function(body, stat, res) {
-      if(body.id) {
-        alertaModal.text("Enviamos um e-mail de confirmação com um link, verifique seu e-mail!")
-        $(".botao_modal").css("display", "none")
-        $("#botao-modal_cancelar").text("Sair")
-      }
+botaoCadastrar.on("click", async () => {
+  const nome = campoNome.val()
+  const emailVal = campoEmail.val()
+  const senhaVal = campoSenha.val()
+  
+  if (!nome || !emailVal || !senhaVal) {
+    alertaModal.text("Preencha todos os campos!")
+    return
+  }
+  
+  alertaModal.text("Criando conta...")
+  
+  const resultado = await cadastrarUsuario(nome, emailVal, senhaVal)
+  
+  if (resultado.sucesso) {
+    alertaModal.text("Conta criada com sucesso! Redirecionando...")
+    $(".botao_modal").css("display", "none")
+    $("#botao-modal_cancelar").text("Sair")
+    
+    // Salvar no localStorage
+    const item = [{
+      "uid": resultado.usuario.uid,
+      "no": nome,
+      "email": emailVal
+    }]
+    localStorage.setItem("apicontrole", JSON.stringify(item))
+    
+    setTimeout(() => {
+      window.location.href = './principal.html'
+    }, 1500)
+  } else {
+    if (resultado.erro.includes('email-already-in-use')) {
+      alertaModal.text("Este email já está cadastrado!")
+    } else if (resultado.erro.includes('weak-password')) {
+      alertaModal.text("A senha deve ter pelo menos 6 caracteres!")
+    } else {
+      alertaModal.text("Erro ao criar conta: " + resultado.erro)
     }
-  }).fail((erro) => {
-    console.log(erro)
-    if(erro.status === 404) (
-      alertaModal.text("Houve um erro ao acessar o servidor!")
-    )
-    if(erro.status === 500) {
-      alertaModal.text("Erro, servidor náo acessivel!")
-    }
-  })
+  }
 })
 
-function loginAutomatico() {
-
-  const token = refreshToken()
-
-  if(token != null) {
-    const data = {
-      refreshToken: token
-    }
+botaoLogin.on("click", async () => {
+  const emailVal = email.val()
+  const senhaVal = senha.val()
   
-    $.ajax({
-      type: "POST",
-      url: `${endereco}/usuarios/atualiza_refresh`,
-      data: data,
-      dataType: 'json',
-      success: function(body, stats, res) {
-        
-        let refreshToken = body.refreshToken
-        let nome = body.nomeUsuario
-        let accessToken = res.getResponseHeader("Authorization")
-  
-        if(refreshToken.erro != "Refresh Token é invalido!") {
-  
-          const item = [
-            {
-              "rt": refreshToken,
-              "at": accessToken,
-              "no": nome
-            }
-          ]
-
-          localStorage.setItem("apicontrole", JSON.stringify(item)) 
-          $("#nome-usuario").text(nome)
-        }
-        window.location.href = './principal.html'
-      }
-    }).fail(() => {
-        localStorage.clear()
-        recarregar()
-    })
-  }
-}
-
-botaoLogin.on("click", () => {
-
-  if(email.val() == "" || senha.val() == "") {
+  if (emailVal == "" || senhaVal == "") {
     alerta.text('Campo E-mail ou Senha vazio!')
-  } else {
-    const data = {
-        email : `${email.val()}`,
-        senha : `${senha.val()}`
-    }
-  
-    alerta.text('')
-    $.ajax({
-      type: "POST",
-      url: `${endereco}/usuarios/login`,
-      data: data,
-      dataType: 'json',
-      success: function(body, stats, res) {
-        let refreshToken = body.refreshToken
-        let nome = body.nomeUsuario
-        let accessToken = res.getResponseHeader("Authorization")
-  
-        const item = [
-          {
-            "rt": refreshToken,
-            "at": accessToken,
-            "no": nome
-          }
-        ]
-    
-        localStorage.setItem("apicontrole", JSON.stringify(item))  
-        $("#nome-usuario").text(nome)
-        
-        window.location.href = './principal.html'
-      }
-      }).fail((erro) => {
-        if(erro.status == 401) {
-          if(erro.responseJSON.erro === 'Enviamos um novo e-mail de verificação, aguarde alguns minutos e verifique sua caixa de e-mail, veja também na caixa de spam!') {
-            alerta.text(erro.responseJSON.erro)
-          } else {
-            alerta.text('Usuario ou senha invalidos!')
-          }
-        }
-        if(erro.status == 500) {
-          alerta.text('Erro de conexão com o servidor')
-        }
-      })
+    return
   }
-
+  
+  alerta.text('Entrando...')
+  
+  const resultado = await fazerLogin(emailVal, senhaVal)
+  
+  if (resultado.sucesso) {
+    // Salvar no localStorage
+    const item = [{
+      "uid": resultado.usuario.uid,
+      "no": resultado.nome,
+      "email": emailVal
+    }]
+    localStorage.setItem("apicontrole", JSON.stringify(item))
+    $("#nome-usuario").text(resultado.nome)
+    
+    alerta.text('Login realizado!')
+    setTimeout(() => {
+      window.location.href = './principal.html'
+    }, 500)
+  } else {
+    if (resultado.erro.includes('user-not-found') || resultado.erro.includes('wrong-password')) {
+      alerta.text('Email ou senha inválidos!')
+    } else if (resultado.erro.includes('too-many-requests')) {
+      alerta.text('Muitas tentativas. Aguarde alguns minutos.')
+    } else {
+      alerta.text('Erro ao fazer login: ' + resultado.erro)
+    }
+  }
 })
 
 
