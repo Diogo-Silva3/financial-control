@@ -71,6 +71,54 @@ async function fazerLogin(email, senha) {
     }
 }
 
+// Função para login com Google
+async function loginComGoogle() {
+    try {
+        if (!auth) initFirebaseServices();
+        
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({
+            prompt: 'select_account'
+        });
+        
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+        
+        // Verificar se usuário já existe no Firestore
+        const docRef = db.collection('usuarios').doc(user.uid);
+        const doc = await docRef.get();
+        
+        if (!doc.exists) {
+            // Criar novo usuário no Firestore
+            await docRef.set({
+                nome: user.displayName,
+                email: user.email,
+                fotoPerfil: user.photoURL,
+                criadoEm: firebase.firestore.FieldValue.serverTimestamp(),
+                verificado: true,
+                loginGoogle: true
+            });
+        }
+        
+        return {
+            sucesso: true,
+            usuario: user,
+            nome: user.displayName
+        };
+    } catch (erro) {
+        console.error('Erro ao fazer login com Google:', erro);
+        
+        // Tratar erros específicos
+        if (erro.code === 'auth/popup-closed-by-user') {
+            return { sucesso: false, erro: 'Login cancelado pelo usuário' };
+        } else if (erro.code === 'auth/popup-blocked') {
+            return { sucesso: false, erro: 'Pop-up bloqueado. Permita pop-ups para este site.' };
+        }
+        
+        return { sucesso: false, erro: erro.message };
+    }
+}
+
 // Função para fazer logout
 async function fazerLogout() {
     try {

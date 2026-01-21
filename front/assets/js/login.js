@@ -1,6 +1,7 @@
 const botaoCadastro = $("#botaoCadastro")
 const botaoCadastrar = $("#botao-modal")
 const botaoLogin = $("#botaoLogin")
+const botaoLoginGoogle = $("#botaoLoginGoogle")
 const email = $("#email-login")
 const senha = $("#senha-login")
 const alerta = $("#alertMsg")
@@ -14,6 +15,31 @@ const campoSenha = $("#campo-senha")
 verificarUsuarioLogado().then(user => {
   if (user) {
     window.location.href = './principal.html'
+  }
+})
+
+// Login com Google
+botaoLoginGoogle.on("click", async () => {
+  alerta.text('Abrindo login do Google...')
+  
+  const resultado = await loginComGoogle()
+  
+  if (resultado.sucesso) {
+    // Salvar no localStorage
+    const item = [{
+      "uid": resultado.usuario.uid,
+      "no": resultado.nome,
+      "email": resultado.usuario.email,
+      "foto": resultado.usuario.photoURL
+    }]
+    localStorage.setItem("apicontrole", JSON.stringify(item))
+    
+    alerta.text('Login realizado com Google!')
+    setTimeout(() => {
+      window.location.href = './principal.html'
+    }, 500)
+  } else {
+    alerta.text(resultado.erro)
   }
 })
 

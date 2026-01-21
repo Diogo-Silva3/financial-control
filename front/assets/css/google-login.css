@@ -1,0 +1,83 @@
+/* Botão de Login com Google */
+.btn-google {
+    width: 100%;
+    padding: 12px 24px;
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3c4043;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.btn-google:hover {
+    background: #f8f9fa;
+    border-color: #d2d3d4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google:active {
+    background: #f1f3f4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Divider "ou" */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #5f6368;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dadce0;
+}
+
+.divider span {
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5f6368;
+}
+
+/* Ajustes para modo escuro */
+body.dark-mode .btn-google {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.dark-mode .btn-google:hover {
+    background: #374151;
+    border-color: #6b7280;
+}
+
+body.dark-mode .divider {
+    color: #9ca3af;
+}
+
+body.dark-mode .divider::before,
+body.dark-mode .divider::after {
+    border-color: #4a5568;
+}
+
+body.dark-mode .divider span {
+    color: #9ca3af;
+}
